@@ -5,7 +5,9 @@
 
 /*==============================================================================================================*/
 
-#define MOTORSPEED 255
+#define MOTORSPEED_RIGHT 255
+#define MOTORSPEED_LEFT 255
+
 #define PIN_SERVO 10
 #define PIN_TRIGGER A0
 #define PIN_ECHO A1
@@ -38,7 +40,7 @@ bool direction = DIRECTION_FORWARD;
 void setup() {
   Serial.begin(9600);           // set up Serial library at 9600 bps
   
-  // // turn on motor
+  // turn on motor
   motor_rechts.setSpeed(MOTORSPEED);
   motor_links.setSpeed(MOTORSPEED);
  
@@ -65,14 +67,13 @@ void loop() {
   Serial.println(*distance);
 
   if(direction == DIRECTION_FORWARD && *distance > 30) {
-    Serial.println("forward");
+   
     DriverForward();
   }
   else {
 
     motor_rechts.run(RELEASE);
     motor_links.run(RELEASE);
-    Serial.println("turn");
 
     servo.write(SERVO_LINKS);
     delay(WAIT_SERVO);
