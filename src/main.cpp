@@ -41,8 +41,8 @@ void setup() {
   Serial.begin(9600);           // set up Serial library at 9600 bps
   
   // turn on motor
-  motor_rechts.setSpeed(MOTORSPEED);
-  motor_links.setSpeed(MOTORSPEED);
+  motor_rechts.setSpeed(MOTORSPEED_RIGHT);
+  motor_links.setSpeed(MOTORSPEED_LEFT);
  
   motor_rechts.run(RELEASE);
   motor_links.run(RELEASE);
